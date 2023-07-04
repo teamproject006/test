@@ -7,6 +7,7 @@ function App() {
     <div className="App">
         parent component
         <FirstChild />
+        sihem moslah
     </div>
   );
 }
