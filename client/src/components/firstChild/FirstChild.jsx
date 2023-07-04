@@ -3,7 +3,7 @@ import React from 'react'
 const FirstChild = () => {
   return (
     <div>
-      child
+      fares
     </div>
   )
 }
