@@ -4,7 +4,8 @@ const FirstChild = () => {
   return (
     <div>
       fares
-      khouloud 
+      khouloud
+      rafik 
     </div>
   )
 }
