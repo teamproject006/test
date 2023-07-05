@@ -1,13 +1,12 @@
 import React from "react";
-import FirstChild from "./components/firstChild/FirstChild.jsx";
-
-
+import Login from "./Components/Login/Login.jsx"
+import Register from "./Components/Register/Register.jsx";
 function App() {
   return (
     <div className="App">
-        parent component
-        <FirstChild />
-        sihem moslah
+    
+      <Register/>
+
     </div>
   );
 }
