@@ -5,29 +5,59 @@ const sequelize = require("../config");
 
 
 const User = sequelize.define('User', {
-  username: Sequelize.STRING,
-  password: Sequelize.STRING,
-  email: Sequelize.STRING,
-  address: Sequelize.STRING,
-  phoneNumber: Sequelize.STRING
+  username: {
+    type: Sequelize.STRING,
+    allowNull: false,
+    unique:true
+  },
+  password: {
+    type: Sequelize.STRING,
+    allowNull: false
+  }
 });
 
 // Service model
 const Service = sequelize.define('Service', {
-  category: Sequelize.STRING,
-  companyName: Sequelize.STRING,
-  description: Sequelize.STRING,
-  costPerDay: Sequelize.FLOAT,
-  logo: Sequelize.STRING,
-  images: Sequelize.TEXT, // Modify the column type to TEXT
-  address: Sequelize.STRING
+  category: {
+    type: Sequelize.STRING,
+    allowNull: false
+  },
+  companyName: {
+    type: Sequelize.STRING,
+    allowNull: false
+  },
+  description: {
+    type: Sequelize.STRING,
+    allowNull: false
+  },
+  costPerDay: {
+    type: Sequelize.FLOAT,
+    allowNull: false
+  },
+  logo: {
+    type: Sequelize.STRING,
+    allowNull: false
+  },
+  images: {
+    type: Sequelize.TEXT,
+    allowNull: false
+  },
+  address: {
+    type: Sequelize.STRING,
+    allowNull: false
+  }
 });
 
 
 const Rental = sequelize.define('Rental', {
-
-  rentalDate: Sequelize.DATE,
-  returnDate: Sequelize.DATE
+  rentalDate: {
+    type: Sequelize.DATE,
+    allowNull: false
+  },
+  returnDate: {
+    type: Sequelize.DATE,
+    allowNull: false
+  }
 });
 
 User.hasMany(Rental);
