@@ -4,8 +4,8 @@ import Register from "./Components/Register/Register.jsx";
 function App() {
   return (
     <div className="App">
-        parent component
-        <FirstChild />
+    
+        <Register />
         
     </div>
   );
