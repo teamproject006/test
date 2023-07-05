@@ -1,0 +1,71 @@
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 50px;
+    padding: 0 10%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color:white;
+    /* background-color:pink; */
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    z-index: 10;
+}
+.nav {
+    display: flex;
+}
+.logo {
+    color:
+    rgb(195, 129, 84);
+    font-weight: 700;
+    font-size: 25px;
+    font-family: 'Dancing Script';
+}
+/* .logo span {
+    color: #273e60;
+} */
+.nav li {
+   margin: 0 15px;
+   list-style: none;
+}
+.nav li a {
+    font-size: 14px;
+    text-decoration: 0;
+    /* color: #999; */
+    color:
+    rgb(195, 129, 84);
+    position: relative;
+}
+.nav li a::before {
+    position: absolute;
+    top: -5px;
+    left: 0;
+    content: "";
+    width: 0;
+    height: 2px;
+    border-radius: 6px;
+    background-color:white;
+    transition: 0.5s;
+}
+.nav li a:hover::before {
+    width: 100%;
+}
+.nav li a::after {
+    position: absolute;
+    bottom: -5px;
+    right: 0;
+    content: "";
+    width: 0;
+    height: 2px;
+    border-radius: 6px;
+    background-color:FFABAB;
+    transition: 0.5s;
+}
+.nav li a:hover::after {
+    width: 100%;
+} */
+.nav li a:hover {
+    color: #000;
+}
