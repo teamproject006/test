@@ -3,7 +3,7 @@ import "./Login.css";
 import axios from 'axios'
 import { Link } from 'react-router-dom';
 
-import {  } from 'react-hook-form';
+// import {  } from 'react-hook-form';
 
 
  const Login=()=>{
