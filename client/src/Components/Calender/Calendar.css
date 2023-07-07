@@ -1,0 +1,12 @@
+.booked{
+    background-color: red;
+    pointer-events: none;
+ 
+    opacity: 0.2;
+    cursor: not-allowed;
+    
+}
+.calender{
+    width: 300px;
+    height: 300px;
+}
