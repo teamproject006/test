@@ -5,44 +5,55 @@ const {createTokens}=require("../utils/JWT")
 
 module.exports={
     Register:(req,res)=>{
-        const {username,password}=req.body
+        const {username,password,email,imageUrl,phoneNumber}=req.body
         bcrypt.hash(password,10).then((hash)=>{
             User.create({
-                username:username,
-                password:hash
-            }).then((result)=>{
-                res.status(201).json("user registered")
+                username,
+                password:hash,
+                email,
+                imageUrl,
+                phoneNumber
+
+            }).then(()=>{
+                return res.status(201).json("user registered")
             }).catch(err=>{
-                if(err){
-                    res.status(500).json({errooor:err})
-                }
+                    res.json({errooor:err})
+                
             })
         })
     },
     login:async (req,res)=>{
         const {username,password}=req.body
         const user=await User.findOne({where:{username:username}})
-        if(!user){
-            res.status(400).json({error:"user doesn't exist "})
-        }
-        const dbPassword=user.password
+        
+        if(user===null){
+            return res.json({error:"user doesn't exist "})
+        }else{
+            const dbPassword=user.password
              bcrypt.compare(password,dbPassword).then((match)=>{
                 if(!match){
-                    res.status(400).json({error:"Wrong Password"})
+                   return  res.json({Message:"Wrong Password"})
                 }else{
                     const accessToken=createTokens(user)
-                    res.cookie("access-token",accessToken,{
-                        maxAge:60*60*24*30*1000
+                    res.cookie("token",accessToken,{
+                        withCredentials:true,
+                        maxAge:60*60*24*30*1000,
+                        httpOnly:false
                     })
-
-                    res.status(200).json("logged")
+                    res.status(200).json({user:user,token:accessToken})
                 }
              })
+          
+        }
+        
             
         
 
     },
-    profile:(req,res)=>{
-                res.send("profile")
-    }
+    profile:async(req,res)=>{
+        // const token = req.headers.authorization || req.cookies.jwt;
+        const user=await User.findOne({where:{username:req.username}})
+       
+        return res.json({Status:"success",user})
+    }   
 }

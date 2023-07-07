@@ -6,9 +6,10 @@ const  {validateToken}=require("../utils/JWT")
 
 
 // user Route
+
+router.post("/",validateToken,profile)
 router.post("/register", Register);
 router.post("/login",login)
-router.get("/profile",validateToken,profile)
 
 
 //Rent Routes 
