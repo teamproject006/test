@@ -37,6 +37,11 @@ const Service = sequelize.define('Service', {
     type: DataTypes.STRING,
     allowNull: false
   },
+  email: {
+    type: DataTypes.STRING,
+    allowNull: false,
+    unique: true
+  },
   description: {
     type: DataTypes.STRING,
     allowNull: false
@@ -63,10 +68,6 @@ const Service = sequelize.define('Service', {
 
 const Rental = sequelize.define('Rental', {
   rentalDate: {
-    type: DataTypes.DATE,
-    allowNull: false
-  },
-  returnDate: {
     type: DataTypes.DATE,
     allowNull: false
   }

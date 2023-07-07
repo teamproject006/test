@@ -2,11 +2,12 @@ const { Service } = require('../database-sequelize/models/sequelizeschema');
 
 module.exports = {
   addService(req, res) {
-    const { category, companyName, description, costPerDay, logo, images, address } = req.body;
+    const { category, companyName,email, description, costPerDay, logo, images, address } = req.body;
     Service.create({
       category,
       companyName,
       description,
+      email,
       costPerDay,
       logo,
       images,
@@ -16,8 +17,8 @@ module.exports = {
       .then((service) => {
         res.status(201).json(service);
       })
-      .catch((error) => {
-        res.status(500).json({ error: 'Failed to add service' });
+      .catch((err) => {
+        res.status(500).json({ error: err });
       });
   },
 
@@ -31,8 +32,8 @@ module.exports = {
           res.status(204).end();
         }
       })
-      .catch((error) => {
-        res.status(500).json({ error: 'Failed to delete service' });
+      .catch((err) => {
+        res.status(500).json({ err: 'Failed to delete service' });
       });
   },
 
@@ -45,25 +46,37 @@ module.exports = {
         res.status(500).json({ error: 'Failed to get services' });
       });
   },
-
   updateService(req, res) {
     const { serviceId } = req.params;
-    const { column, value } = req.body;
-
+    const updatedData = req.body;
     Service.findByPk(serviceId)
       .then((service) => {
         if (!service) {
           res.status(404).json({ error: 'Service not found' });
           return;
         }
-
-        return service.update({ [column]: value });
+        return service.update(updatedData);
       })
       .then((updatedService) => {
         res.status(200).json(updatedService);
       })
       .catch((error) => {
-        res.status(500).json({ error: 'Failed to update service column' });
+        res.status(500).json({ error: 'Failed to update service' });
+      });
+  },  
+  getOneService(req, res) {
+    const { serviceId } = req.params;
+    Service.findByPk(serviceId)
+      .then((service) => {
+        if (!service) {
+          res.status(404).json({ error: 'Service not found' });
+        } else {
+          res.status(200).json(service);
+        }
+      })
+      .catch((err) => {
+        res.status(500).json({ error: 'Failed to get service' });
       });
   }
+
 };
