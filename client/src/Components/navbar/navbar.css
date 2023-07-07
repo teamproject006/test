@@ -15,6 +15,7 @@ header {
 }
 .nav {
     display: flex;
+    align-items: center;
 }
 .logo {
     color:
@@ -69,3 +70,13 @@ header {
 .nav li a:hover {
     color: #000;
 }
+.user-info {
+    display: flex;
+    align-items: center;
+  }
+  .user-info img {
+    width: 30px; 
+    height: 30px; 
+    border-radius: 50%; 
+    margin-right: 5px; 
+  }

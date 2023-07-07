@@ -13,7 +13,23 @@ const User = sequelize.define('User', {
   password: {
     type: Sequelize.STRING,
     allowNull: false
+  },
+  email:{
+      type:Sequelize.STRING,
+      allowNull:false,
+      unique:true
+  },
+  imageUrl:{
+    type:Sequelize.STRING,
+    allowNull:true,
+
+  },
+  phoneNumber:{
+    type:Sequelize.STRING,
+    allowNull:false
   }
+}, {
+  timestamps: false
 });
 
 // Service model
@@ -46,6 +62,8 @@ const Service = sequelize.define('Service', {
     type: Sequelize.STRING,
     allowNull: false
   }
+}, {
+  timestamps: false
 });
 
 
@@ -58,6 +76,8 @@ const Rental = sequelize.define('Rental', {
     type: Sequelize.DATE,
     allowNull: false
   }
+}, {
+  timestamps: false
 });
 
 User.hasMany(Rental);
