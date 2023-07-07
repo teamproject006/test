@@ -1,92 +1,93 @@
 const { Sequelize, DataTypes } = require('sequelize');
-// const sequelize = require('../config');
-const sequelize = require("../config");
-
-
+const sequelize = require('../config');
 
 const User = sequelize.define('User', {
   username: {
-    type: Sequelize.STRING,
+    type: DataTypes.STRING,
     allowNull: false,
-    unique:true
+    unique: true
   },
   password: {
-    type: Sequelize.STRING,
+    type: DataTypes.STRING,
     allowNull: false
   },
-  email:{
-      type:Sequelize.STRING,
-      allowNull:false,
-      unique:true
+  email: {
+    type: DataTypes.STRING,
+    allowNull: false,
+    unique: true
   },
-  imageUrl:{
-    type:Sequelize.STRING,
-    allowNull:true,
-
+  imageUrl: {
+    type: DataTypes.STRING,
+    allowNull: true
   },
-  phoneNumber:{
-    type:Sequelize.STRING,
-    allowNull:false
+  phoneNumber: {
+    type: DataTypes.STRING,
+    allowNull: false
   }
 }, {
   timestamps: false
 });
 
-// Service model
 const Service = sequelize.define('Service', {
   category: {
-    type: Sequelize.STRING,
+    type: DataTypes.STRING,
     allowNull: false
   },
   companyName: {
-    type: Sequelize.STRING,
+    type: DataTypes.STRING,
     allowNull: false
   },
   description: {
-    type: Sequelize.STRING,
+    type: DataTypes.STRING,
     allowNull: false
   },
   costPerDay: {
-    type: Sequelize.FLOAT,
+    type: DataTypes.FLOAT,
     allowNull: false
   },
   logo: {
-    type: Sequelize.STRING,
+    type: DataTypes.STRING,
     allowNull: false
   },
   images: {
-    type: Sequelize.TEXT,
+    type: DataTypes.TEXT,
     allowNull: false
   },
   address: {
-    type: Sequelize.STRING,
+    type: DataTypes.STRING,
     allowNull: false
   }
 }, {
   timestamps: false
 });
-
 
 const Rental = sequelize.define('Rental', {
   rentalDate: {
-    type: Sequelize.DATE,
+    type: DataTypes.DATE,
     allowNull: false
   },
   returnDate: {
-    type: Sequelize.DATE,
+    type: DataTypes.DATE,
     allowNull: false
   }
 }, {
   timestamps: false
 });
 
-User.hasMany(Rental);
+User.hasMany(Rental, {
+  onDelete: 'CASCADE',
+  onUpdate: 'CASCADE'
+});
 Rental.belongsTo(User);
 
-Service.hasMany(Rental);
+Service.hasMany(Rental, {
+  onDelete: 'CASCADE',
+  onUpdate: 'CASCADE'
+});
 Rental.belongsTo(Service);
 
-module.exports={
-  Service,Rental,User
-}
-
+module.exports = {
+  Service,
+  Rental,
+  User
+};

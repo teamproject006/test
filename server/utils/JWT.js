@@ -21,16 +21,6 @@ const validateToken=(req,res,next)=>{
                 }
             })
     }
-    // try{
-    //     const validToken=verify(accessToken,"secretKeyy")
-    //     if(validToken){
-    //         req.authenticated=true
-    //         return next();
-    //     }
-
-    // }catch(err){
-    //     return res.status(400).json({error:err})
-    // }
 }
 
 module.exports={

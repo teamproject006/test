@@ -45,15 +45,9 @@ module.exports={
              })
           
         }
-        
-            
-        
-
     },
     profile:async(req,res)=>{
-        // const token = req.headers.authorization || req.cookies.jwt;
-        const user=await User.findOne({where:{username:req.username}})
-       
-        return res.json({Status:"success",user})
-    }   
+            const user=await User.findOne({where:{username:req.username}})
+            return res.json({Status:"success",user})
+    }  
 }
