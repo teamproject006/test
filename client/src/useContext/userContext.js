@@ -2,16 +2,21 @@ import React, { createContext, useState } from "react";
 export const UserContext = createContext();
 const UserContextPovider = (props) => {
     const [currentUser,setCurrentUser]=useState({})
-
+    const [service,setService]=useState([])
+    const handleService=(arr)=>{
+      setService(arr)
+    }
     const handleUser=(user)=>{
-      console.log(user)
+      
       setCurrentUser(user)
     }
 
 
     const contextValue={
       currentUser,
-      handleUser
+      handleUser,
+      service,
+      handleService
     }
     return (
         <UserContext.Provider value={contextValue}>

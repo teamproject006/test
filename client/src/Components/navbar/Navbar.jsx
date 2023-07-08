@@ -22,7 +22,7 @@ const Navbar=()=>{
    
     <ul className="nav">
       
-        <li><a href="#home">Home</a></li>
+        <li><Link to="/">Home</Link></li>
         <li><a href="#aboutus"> About us </a></li>
 
         <li>{currentUser.username?<span className="user-info">
