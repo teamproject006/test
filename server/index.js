@@ -1,23 +1,31 @@
 const express = require("express");
-const usersRoutes = require('./routes/users')
+const usersRoutes = require('./routes/AuthRoutes')
+const serviceRoutes = require('./routes/servicesRoutes')
+const rentalRoutes = require('./routes/rentalRoutes')
+const resevationRoutes=require("./routes/resevationRoutes")
 const sequelize=require("./database-sequelize/config")
 const cookieParser=require("cookie-parser")
-
-// TODO: Update this
-// UNCOMMENT THE DATABASE YOU'D LIKE TO USE
-// const db = require('./database-mysql');
-// const db = require('./database-mongo');
-
+const cors=require('cors')
 const app = express();
-const PORT = process.env.PORT || 3000
+const PORT = process.env.PORT || 3004
 
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
 app.use(cookieParser())
+
+app.use(cors({
+  origin:["http://localhost:3000"],
+  methods:["POST,GET"],
+  credentials:true
+}))
 
 
 app.use("/api/users", usersRoutes);
+app.use("/api/services",serviceRoutes)
+app.use("/api/rental",rentalRoutes)
+app.use('/api/reservation',resevationRoutes)
 sequelize.sync().then(()=>{
     console.log("database connected ")
     

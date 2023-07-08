@@ -1,23 +1,51 @@
 import React, { useState } from 'react';
 import './Register.css';
-import { Link } from 'react-router-dom';
-
+import { Link,useNavigate } from 'react-router-dom';
+import  axios from "axios"
 const Register = () => {
-
+  const Navigate=useNavigate()
   const[username,setUsername]=useState("")
-  const[mail,setMail]=useState("")
+  const[email,setEmail]=useState("")
   const[password,setPassword]=useState("")
   const[confirmpwd,setConfirmpwd]=useState("")
-  const[mobile,setMobile]=useState("")
+  const[phoneNumber,setPhoneNumber]=useState("")
+  const[imageUrl,setImageUrl]=useState("")
+  const[file,setFile]=useState("")
 
- const handleSubmit=(e)=>{
+
+  const uploadImage=async()=>{
+    const form=new FormData()
+    form.append("file",file)
+    form.append("upload_preset","travelMind")
+    await axios.post("https://api.cloudinary.com/v1_1/do25iiz1j/upload",form)
+    .then(res=>{
+      setImageUrl(res.data.secure_url)
+      console.log(res.data.secure_url)
+    })
+    .catch(err=>console.log(err))
+  }
+
+  const handleSubmit=async (e)=>{
     e.preventDefault()
-    console.log(username)
-    console.log(mail)
-    console.log(password)
-    console.log(confirmpwd)
-    console.log(mobile)
- }
+    axios.post("http://localhost:3004/api/users/register",{
+      username,email,password,imageUrl,phoneNumber
+    }).then(()=>{
+        Navigate("/login")
+    })
+    .catch(()=>{
+        alert("Username aleardy used")
+        username("")
+    })
+  // try{
+  // const response=await axios.post("http://localhost:3001/api/users/register",{
+  //   "username":username,"password":password
+  // })
+  // const data =response.data
+  // console.log(data)
+  // }catch(err){
+  //   console.log(err)
+  // }
+  }
 
   
   return (
@@ -38,10 +66,10 @@ const Register = () => {
            
             <input
               type="text"
-              name="mail"
-              value={mail}
-              onChange={(e)=>setMail(e.target.value)}
-              placeholder="enter mail"
+              name="email"
+              value={email}
+              onChange={(e)=>setEmail(e.target.value)}
+              placeholder="enter email"
             />
             
             <input
@@ -60,18 +88,28 @@ const Register = () => {
             />
             <input
               type="text"
-              name="mobile"
-              value={mobile}
-              onChange={(e)=>setMobile(e.target.value)}
-              placeholder="mobile number"
+              name="phoneNumber"
+              value={phoneNumber}
+              onChange={(e)=>setPhoneNumber(e.target.value)}
+              placeholder="phoneNumber number"
             />
         
 
-            <input type="file" placeholder="add your image" />
+        <input 
+        className='image-input'
+         type='file' 
+         onChange={(e)=>setFile(e.target.files[0])} 
+         />
+           <button type='button' className='btn' onClick={()=>{
+                  uploadImage()
+                }} >upload Image</button>
 
-            <button className="btn" type="submit">
-              Register
-            </button>
+            {         imageUrl
+                        &&
+                      <button className="btn" type="submit">
+                        Register
+                      </button>
+              }
 
             <span>
               Already have an account? <Link to="/login">Login</Link>

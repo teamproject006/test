@@ -1,31 +1,43 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState,useContext } from 'react'
 import "./Login.css";
 import axios from 'axios'
-import { Link } from 'react-router-dom';
+import { Link,useNavigate} from 'react-router-dom';
+import { UserContext } from '../../useContext/userContext'
 
-// import {  } from 'react-hook-form';
+
+
+
 
 
  const Login=()=>{
-
+  const {handleUser}=useContext(UserContext)
    const [username,setUsername]=useState("")
    const [password,setPassword]=useState("")
-   const [confirmpwd,setConfirmpwd]=useState("")
 
-    useEffect(()=>{
-        axios.post('http://localhost:3000/api/users/login',{
-            username:"aminee",
-            password:"1022222"
-        }).then(res=>console.log(res.data))
-        .catch(err=>console.log("err",err))
-    },[])
+  const navigate=useNavigate()
 
 
-const handleSubmit=(e)=>{
+
+axios.defaults.withCredentials=true
+const handleSubmit= (e)=>{
   e.preventDefault()
-  console.log(username)
-  console.log(password)
-  console.log(confirmpwd)
+  axios.post("http://localhost:3004/api/users/login",{
+  "username":username,"password":password
+  }).then(res=>{
+
+    localStorage.setItem("token",res.data.token)
+
+    if(res.data.user){
+      handleUser(res.data.user)
+        navigate("/")
+    }else{
+       alert("invalid username or password")
+        setUsername("") 
+        setPassword("")
+    }
+  })
+    .catch(err=>console.log(err))
+
 }
     
     return (
@@ -49,13 +61,7 @@ const handleSubmit=(e)=>{
                   onChange={(e)=>setPassword(e.target.value)}
                   placeholder="password"
                 />
-                <input
-                  type="password"
-                  name="confirmpwd"
-                  value={confirmpwd}
-                  onChange={(e)=>setConfirmpwd(e.target.value)}
-                  placeholder="confirm password"
-                />
+
     
                 <button className="btn" type="submit">
                   Sign In
@@ -63,7 +69,9 @@ const handleSubmit=(e)=>{
                 <span>
                   Don't have an account? <Link to="/register">Register</Link>
                 </span>
+
               </form>
+
             </div>
             <div className="col-2">
               <img src="https://www.theknot.com/tk-media/images/8f111626-128e-49a9-921a-c9fd21551435~rs_768.h" alt="" />
