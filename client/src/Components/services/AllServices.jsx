@@ -1,10 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
 import "./allservice.css"
- const Service = () => {
-  return (
+ const AllServices = () => {
+  const [oneService,setOneService]=useState()
 
+
+
+  return (
+<>
+<h1>OUR SERVICES</h1>
       <div className="s">
-        <div></div>
+        
         <div className="container">
     <div class="card">
         <img className="pic"  src="https://www.marhba.com/images/mariage/mariage2022/laicotunis.jpg" alt="Service 1" />
@@ -24,17 +29,19 @@ import "./allservice.css"
         <img className="pic"  src="https://www.eleganceweddingcars.co.uk/wp-content/uploads/2021/04/LWB-Silver-Cloud-Rolls-Royce-1750x1013.jpg" alt="Service 4"  />
           <h4><b> Wedding Cars </b></h4>  
     </div>
-   
+   </div>
+   <div className='container'>
     <div class="card">
         <img className="pic"  src="https://flowerdeliveryhoustontx.com/wp-content/uploads/wedding-flowers.jpg" alt="Service 5"  />
           <h4><b>Florist</b></h4>  
     </div>
     <div class="card">
         <img className="pic"  src="https://wp.fr.aleteia.org/wp-content/uploads/sites/6/2017/07/floralweddingcake.jpg?w=620&h=348&crop=1" alt="Service 5"  />
-          <h4><b> Wedding Cack </b></h4>  
+          <h4><b> Wedding Cake</b></h4>  
     </div>
     </div>
     </div>
+    </>
   )
 }
-export default Service
+export default AllServices

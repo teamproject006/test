@@ -1,11 +1,13 @@
 import axios from 'axios'
 import React,{useEffect, useState,useContext} from 'react'
 import { UserContext } from '../../useContext/userContext'
+import BackGround from "../background/Background.jsx"
+import AllServices from '../services/AllServices.jsx'
 
 const Home = () => {
     const {currentUser,handleUser}=useContext(UserContext)
     const [auth,setAuth]=useState(false)
-    const [message,setMessage]=useState("")
+   
 
     useEffect(()=>{
       const token=localStorage.getItem("token")
@@ -18,23 +20,14 @@ const Home = () => {
        })
       
       .catch(err=>console.log("errrr",err))
-    },[])
+    },[handleUser])
  
 
  
   return (
     <div>
-      {auth?
-      <div>
-        <h3>You are authorized {currentUser.username}</h3>
-        <button>Logout</button>
-      </div>:
-      <div>
-        <h3>{message}</h3>
-        <h3>login Now </h3>
-        <button>login</button>
-      </div>
-      }
+      <BackGround />
+      <AllServices/>
     </div>
   )
 }
