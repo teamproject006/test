@@ -7,7 +7,7 @@ const sequelize=require("./database-sequelize/config")
 const cookieParser=require("cookie-parser")
 const cors=require('cors')
 const app = express();
-const PORT = process.env.PORT || 3004
+const PORT = process.env.PORT || 3005
 
 
 app.use(express.json());
@@ -17,8 +17,7 @@ app.use(cookieParser())
 
 app.use(cors({
   origin:["http://localhost:3000"],
-  methods:["POST,GET"],
-  credentials:true
+   credentials: true
 }))
 
 

@@ -1,22 +1,25 @@
 import React from 'react'
 import Image from  "./Image.jsx"
+import Reservation from '../../../Reservation/Reservation.jsx'
 import './one.css'
 
 
-const  one=()=>{
+const  One=()=>{
   return(
-    <section class="section product-detail">
-    <div class="details container">
-      <div class="left image-container">
-        <div class="main">
+    <div className='One-container'>
+      
+    <section className="section product-detail">
+    <div className="details container">
+      <div className="left image-container">
+        <div className="main">
           <img src="https://scontent.ftun4-2.fna.fbcdn.net/v/t39.30808-6/327194626_1618836058565905_2766110698324352424_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=pzDrEt-01lUAX8htOY7&_nc_ht=scontent.ftun4-2.fna&oh=00_AfCrSN6XWpoqxJygtWIo_BJn7e9h_N4X24ahNXfBqTCq3A&oe=64AB6565" alt="" /> 
        
         </div>
       </div>
-      <div class="right">
+      <div className="right">
         <span></span>
         <h1>Glof Carthage </h1>
-        <div class="price">La soukra</div>
+        <div className="price">La soukra</div>
      
         
         <h3>description</h3>
@@ -35,6 +38,9 @@ const  one=()=>{
     </div>
 
   </section>
+ <Image/>
+  <Reservation/>
+  </div>
 
 
    
@@ -43,4 +49,4 @@ const  one=()=>{
 }
 
 
-export default one
+export default One

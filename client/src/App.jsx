@@ -6,6 +6,8 @@ import Navbar from "./Components/navbar/Navbar.jsx";
 import Home from "./Components/Home/Home.jsx";
 import UserContextPovider from "./useContext/userContext.js";
 import Reservation from './Components/Reservation/Reservation.jsx'
+import OneService from "./Components/services/oneservice/OneService.jsx";
+import One from "./Components/services/oneservice/oneproduct/One.jsx";
 function App() {
 
   return (  
@@ -14,11 +16,12 @@ function App() {
           <BrowserRouter>
           <Navbar />
           <Routes>
+            <Route path="/" element={<One/>}/>
             <Route path="/register" element={<Register />}/>
             <Route path="/login" element={<Login />}/>
-            <Route path="/" element={<Home/>}/>
             <Route path="/reservation" element={<Reservation/>}/>
-          </Routes>
+            <Route path="/one" element={<OneService />}/>
+          </Routes> 
           </BrowserRouter>
           </div>
     </UserContextPovider>

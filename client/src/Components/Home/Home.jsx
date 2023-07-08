@@ -5,22 +5,22 @@ import BackGround from "../background/Background.jsx"
 import AllServices from '../services/AllServices.jsx'
 
 const Home = () => {
-    const {currentUser,handleUser}=useContext(UserContext)
-    const [auth,setAuth]=useState(false)
+    const {handleUser}=useContext(UserContext)
+   
    
 
     useEffect(()=>{
       const token=localStorage.getItem("token")
-      axios.post("http://localhost:3004/api/users",{"token":token})
+      axios.post("http://localhost:3005/api/users",{"token":token})
       .then(res=>{
         if(res.data.user){
           handleUser(res.data.user)
-          setAuth(true)
+        
         }
        })
       
       .catch(err=>console.log("errrr",err))
-    },[handleUser])
+    },[])
  
 
  
