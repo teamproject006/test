@@ -15,11 +15,9 @@ header {
 }
 .nav {
     display: flex;
-    align-items: center;
 }
 .logo {
-    color:
-    rgb(195, 129, 84);
+    color:rgb(223, 25, 223);
     font-weight: 700;
     font-size: 25px;
     font-family: 'Dancing Script';
@@ -36,7 +34,7 @@ header {
     text-decoration: 0;
     /* color: #999; */
     color:
-    rgb(195, 129, 84);
+    rgb(223, 25, 223);
     position: relative;
 }
 .nav li a::before {
@@ -47,8 +45,9 @@ header {
     width: 0;
     height: 2px;
     border-radius: 6px;
-    background-color:white;
     transition: 0.5s;
+    background-color: rgb(249, 230, 230);
+    opacity: 0.7;
 }
 .nav li a:hover::before {
     width: 100%;
@@ -70,6 +69,7 @@ header {
 .nav li a:hover {
     color: #000;
 }
+
 .user-info {
     display: flex;
     align-items: center;

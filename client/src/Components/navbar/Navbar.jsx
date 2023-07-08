@@ -22,9 +22,8 @@ const Navbar=()=>{
    
     <ul className="nav">
       
-        <li><a href="#home">Our Products</a></li>
-        <li><a href="#Shop">Our Shops</a></li>
-        <li><a href="#product">Our Brand</a></li>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#aboutus"> About us </a></li>
 
         <li>{currentUser.username?<span className="user-info">
         <img src={currentUser.imageUrl}/>
