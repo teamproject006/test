@@ -26,7 +26,7 @@ const Navbar=()=>{
         <li><a href="#aboutus"> About us </a></li>
 
         <li>{currentUser.username?<span className="user-info">
-        <img src={currentUser.imageUrl}/>
+        <img src={currentUser.imageUrl} alt="profile"/>
         {currentUser.username}
         </span>
         :<Link to="/login">Sign In</Link>}</li>
