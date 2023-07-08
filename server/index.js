@@ -2,6 +2,7 @@ const express = require("express");
 const usersRoutes = require('./routes/AuthRoutes')
 const serviceRoutes = require('./routes/servicesRoutes')
 const rentalRoutes = require('./routes/rentalRoutes')
+const resevationRoutes=require("./routes/resevationRoutes")
 const sequelize=require("./database-sequelize/config")
 const cookieParser=require("cookie-parser")
 const cors=require('cors')
@@ -24,6 +25,7 @@ app.use(cors({
 app.use("/api/users", usersRoutes);
 app.use("/api/services",serviceRoutes)
 app.use("/api/rental",rentalRoutes)
+app.use('/api/reservation',resevationRoutes)
 sequelize.sync().then(()=>{
     console.log("database connected ")
     
