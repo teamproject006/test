@@ -55,7 +55,7 @@ const Service = sequelize.define('Service', {
     allowNull: false
   },
   images: {
-    type: DataTypes.TEXT,
+    type: DataTypes.ARRAY(DataTypes.STRING),
     allowNull: false
   },
   address: {
