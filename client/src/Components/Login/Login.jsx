@@ -3,6 +3,7 @@ import "./Login.css";
 import axios from 'axios'
 import { Link,useNavigate} from 'react-router-dom';
 import { UserContext } from '../../useContext/userContext'
+import { api } from '../../APi';
 
 
 
@@ -21,7 +22,7 @@ import { UserContext } from '../../useContext/userContext'
 axios.defaults.withCredentials=true
 const handleSubmit= (e)=>{
   e.preventDefault()
-  axios.post("http://localhost:3005/api/users/login",{
+  axios.post(`${api}/users/login`,{
   "username":username,"password":password
   }).then(res=>{
 
@@ -43,7 +44,7 @@ const handleSubmit= (e)=>{
     return (
         <section>
           <div className="register">
-            <div className="col-1">
+            <div style={{padding:"6em"}}>
               <h2>Sign In</h2>
     
               <form id="form" className="flex flex-col" onSubmit={handleSubmit}>
@@ -67,7 +68,7 @@ const handleSubmit= (e)=>{
                   Sign In
                 </button>
                 <span>
-                  Don't have an account? <Link to="/register">Register</Link>
+                  Don't have an account? <Link to="/register">Register</Link> 
                 </span>
 
               </form>
@@ -82,3 +83,5 @@ const handleSubmit= (e)=>{
     };
     
     export default Login;
+
+    

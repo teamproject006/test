@@ -3,6 +3,7 @@ import "./allservice.css"
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import { UserContext } from '../../useContext/userContext'
+import { api } from '../../APi'
 
  const AllServices = () => {
   const {handleService}=useContext(UserContext)
@@ -11,7 +12,7 @@ import { UserContext } from '../../useContext/userContext'
 
   useEffect(()=>{
     
-    axios.get("http://localhost:3005/api/services")
+    axios.get(`${api}/services`)
     .then((res)=>setAllServices(res.data))
     .catch(err=>console.log(err))
 

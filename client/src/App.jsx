@@ -7,7 +7,7 @@ import Home from "./Components/Home/Home.jsx";
 import UserContextPovider from "./useContext/userContext.js";
 import Reservation from './Components/Reservation/Reservation.jsx'
 import OneService from "./Components/services/oneservice/OneService.jsx";
-import One from "./Components/services/oneservice/oneproduct/One.jsx";
+
 function App() {
 
   return (  
@@ -16,7 +16,7 @@ function App() {
           <BrowserRouter>
           <Navbar />
           <Routes>
-            <Route path="/" element={<One/>}/>
+            <Route path="/" element={<Home/>}/>
             <Route path="/register" element={<Register />}/>
             <Route path="/login" element={<Login />}/>
             <Route path="/reservation" element={<Reservation/>}/>
@@ -25,6 +25,7 @@ function App() {
           </BrowserRouter>
           </div>
     </UserContextPovider>
+  
   );
 }
 

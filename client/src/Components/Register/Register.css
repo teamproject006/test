@@ -21,8 +21,8 @@ body{
 }
 
 .register{
-  max-width: 978px; 
-  width: 100vw; 
+  width: 98%; 
+ 
   display:flex; 
   border: 1px solid #e9ecef; 
   border-radius: 5px;
