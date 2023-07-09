@@ -16,7 +16,7 @@
 }
 #home .left h1 {
     font-size: 20px;
-    color:palevioletred;
+    /* color:palevioletred; */
 }
 #home .left h1 {
     font-size: 40px;
@@ -37,7 +37,7 @@
 }
 #home .left button  a {
     text-decoration: 0;
-    color: pink;
+    /* color: pink; */
     font-weight: bold;
     text-transform: uppercase;
     transition: 0.5s;
@@ -50,7 +50,7 @@
     height: 100%;
     width: 100%;
     z-index: -1;
-    background-color: palevioletred;
+    /* background-color: palevioletred; */
 }
 #home .left button:hover a{
    letter-spacing: 1px;
@@ -74,4 +74,16 @@
 @keyframes animate {
     0%{opacity: 0;}
     100%{opacity: 1;}
+}
+
+
+#home{
+    display: flex !important;
+    position: relative;
+    
+}
+.alert{
+    position: absolute;
+    top: 10px;
+    
 }

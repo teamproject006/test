@@ -7,8 +7,8 @@
 
   
  .imgr {
-    width: 90%;
-    height: 80%;
+    width:400px;
+    height: 400px;
     aspect-ratio: 3/2;
     border-radius: 10px;
     margin: 5px 5px 5px 5px ;
@@ -16,16 +16,10 @@
   
 .imgr:hover{
         transition: 1s;
-        transform: scale(1.2);
+        transform: scale(1);
   } 
  
-  .service {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: 1fr;
-    grid-column-gap: 0px;
-    grid-row-gap: 0px;
-    }
+
 
 .div1 { grid-area: 1 / 1 / 2 / 2; }
 .div2 { grid-area: 1 / 2 / 2 / 3; }
@@ -35,3 +29,16 @@ color:	rgb(240,128,128)}
     text-align: left;
     color : rgb(139,0,0)
 }
+.allservice{
+   display:grid;  
+   grid-template-columns: auto auto auto;
+   gap: 60px;
+   margin-top: 17%;
+
+}
+.div2{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+

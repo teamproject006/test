@@ -47,16 +47,20 @@ module.exports = {
       });
   },
   updateService(req, res) {
-    const { serviceId } = req.params;
-    const updatedData = req.body;
-    Service.findByPk(serviceId)
-      .then((service) => {
-        if (!service) {
-          res.status(404).json({ error: 'Service not found' });
-          return;
-        }
-        return service.update(updatedData);
-      })
+
+    const { category, companyName,email, description, costPerDay, logo, images, address } = req.body;
+    Service.update({
+      category,
+      companyName,
+      description,
+      email,
+      costPerDay,
+      logo,
+      images,
+      address
+    },{where:{
+      id:req.params.serviceId
+  }})
       .then((updatedService) => {
         res.status(200).json(updatedService);
       })

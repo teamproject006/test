@@ -1,11 +1,13 @@
-import React,{useState,useEffect} from "react";
+import React from "react";
 import Login from "./Components/Login/Login.jsx"
 import Register from "./Components/Register/Register.jsx";
 import {BrowserRouter,Routes,Route} from "react-router-dom"
 import Navbar from "./Components/navbar/Navbar.jsx";
 import Home from "./Components/Home/Home.jsx";
 import UserContextPovider from "./useContext/userContext.js";
-import Calend from './Components/Calender/Calendar.jsx'
+import Reservation from './Components/Reservation/Reservation.jsx'
+import OneService from "./Components/services/oneservice/OneService.jsx";
+
 function App() {
 
   return (  
@@ -14,14 +16,16 @@ function App() {
           <BrowserRouter>
           <Navbar />
           <Routes>
+            <Route path="/" element={<Home/>}/>
             <Route path="/register" element={<Register />}/>
             <Route path="/login" element={<Login />}/>
-            <Route path="/" element={<Home/>}/>
-            <Route path="/calender" element={<Calend/>}/>
-          </Routes>
+            <Route path="/reservation" element={<Reservation/>}/>
+            <Route path="/one" element={<OneService />}/>
+          </Routes> 
           </BrowserRouter>
           </div>
     </UserContextPovider>
+  
   );
 }
 

@@ -4,17 +4,20 @@ import 'react-calendar/dist/Calendar.css'
 import dayjs from 'dayjs';
 import axios from 'axios';
 import "./Calendar.css"
-function Calend() {
+import { api } from '../../APi';
+function Calend({handleCalender,service}) {
     const [val,setVal]=useState(new Date())
     const [bookedDates, setBookedDates] = useState([]);
     useEffect(()=>{
-        axios.get("http://localhost:3004/api/rental")
+        axios.get(`${api}/rental`)
         .then(res=>{
+          //eslint-disable-next-line
           const bookedDates=res.data.map(rental=>{
-            console.log(rental.ServiceId)
-            if(rental.ServiceId===0){
+           
+            if(rental.ServiceId===service.id){
              return  dayjs(rental.rentalDate).toDate()
             }
+           
           })
           setBookedDates(bookedDates);
         })
@@ -27,8 +30,8 @@ function Calend() {
     <div className='calender'>
 
     
-           <Calendar onChange={setVal} value={val} tileClassName={tileClassName}/>
-     {console.log(dayjs(val).format('YYYY-MM-DD'))}
+           <Calendar onChange={setVal} value={val} tileClassName={tileClassName} onClickDay={()=>handleCalender(dayjs(val).format('YYYY-MM-DD'))}/>
+   
     </div>
   )
 }

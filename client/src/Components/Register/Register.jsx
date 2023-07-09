@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './Register.css';
 import { Link,useNavigate } from 'react-router-dom';
 import  axios from "axios"
+import { api } from '../../APi';
 const Register = () => {
   const Navigate=useNavigate()
   const[username,setUsername]=useState("")
@@ -27,14 +28,15 @@ const Register = () => {
 
   const handleSubmit=async (e)=>{
     e.preventDefault()
-    axios.post("http://localhost:3004/api/users/register",{
+    axios.post(`${api}/users/register`,{
       username,email,password,imageUrl,phoneNumber
     }).then(()=>{
         Navigate("/login")
     })
-    .catch(()=>{
-        alert("Username aleardy used")
-        username("")
+    .catch((err)=>{
+      console.log(err)
+        // alert("Username aleardy used")
+        // setUsername("")
     })
   // try{
   // const response=await axios.post("http://localhost:3001/api/users/register",{
@@ -51,7 +53,7 @@ const Register = () => {
   return (
     <section>
       <div className="register">
-        <div className="col-1">
+        <div style={{padding:"4em"}}>
           <h2>Register </h2>
           <span>register and enjoy the service</span>
 

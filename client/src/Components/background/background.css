@@ -1,20 +1,29 @@
 .w {
     width: 1500px;
     height: 100px;
+  
     position: relative;
-    animation: mymove 12s infinite;
-    animation-delay: 1s;
-    margin-top: 50px;
+    animation: mymove 8s infinite;
+    animation-delay: 0.5s;
+    font-weight: bold;
+    
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-size: 25px;
+    font-size: 35px;
     color: #04355d;
 }
 @keyframes mymove {
     from {left: 0px;}
-    to {left: 1500px;}
+    to {left: 1000px;}
   }
-  .imgc{
-    width: 1500px;
-    margin-left: 5px;
-    height: 450px;
+
+.carousel,
+.slide{
+  width: 100%;
+  margin: 100px auto;
+  margin-bottom: 20px;
+  
+}
+.carousel img {
+  border-radius: 20px;
+  height: 844px;
 }
