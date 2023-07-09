@@ -4,7 +4,7 @@ import Reservation from '../../../Reservation/Reservation.jsx'
 import './one.css'
 
 
-const  One=()=>{
+const  One=({service})=>{
   return(
     <div className='One-container'>
       
@@ -12,22 +12,20 @@ const  One=()=>{
     <div className="details container">
       <div className="left image-container">
         <div className="main">
-          <img src="https://scontent.ftun4-2.fna.fbcdn.net/v/t39.30808-6/327194626_1618836058565905_2766110698324352424_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=pzDrEt-01lUAX8htOY7&_nc_ht=scontent.ftun4-2.fna&oh=00_AfCrSN6XWpoqxJygtWIo_BJn7e9h_N4X24ahNXfBqTCq3A&oe=64AB6565" alt="" /> 
+          <img src={service.logo} alt="" /> 
        
         </div>
       </div>
-      <div className="right">
-        <span></span>
-        <h1>Glof Carthage </h1>
-        <div className="price">La soukra</div>
+      <div className="description_container">
+        <h1>Company Name: </h1>
+        <h2>{service.companyName}</h2>
+        <h3>Cost : $ {service.costPerDay} </h3>
      
         
         <h3>description</h3>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero minima
-          delectus nulla voluptates nesciunt quidem laudantium, quisquam
-          voluptas facilis dicta in explicabo, laboriosam ipsam suscipit!
-        </p>
+        <span>
+         {service.description}
+        </span>
    
         <div >
        
@@ -38,8 +36,8 @@ const  One=()=>{
     </div>
 
   </section>
- <Image/>
-  <Reservation/>
+  <Image images={service.images}/>
+  <Reservation service={service}/>
   </div>
 
 

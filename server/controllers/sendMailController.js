@@ -13,13 +13,13 @@ const mailer = nodemailer.createTransport({
 
 module.exports={
     sendMail:(req,res)=>{
-        const { email, reservationDetails } = req.body;
-        console.log(email,reservationDetails)
+        const {email, reservationDetails} = req.body;
+
         const mail = {
             from: 'rafikmhadhbi@yahoo.fr',
             to: email,
             subject: 'Reservation Confirmation',
-            text: `Thank you for your reservation! Details: ${reservationDetails}`
+            html: `Thank you for your reservation! Details: ${reservationDetails}`
           };
           mailer.sendMail(mail,(err,data)=>{
             if (err) res.status(500).json({ message: 'Error sending email',err:err })

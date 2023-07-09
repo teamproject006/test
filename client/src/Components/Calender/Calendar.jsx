@@ -4,16 +4,17 @@ import 'react-calendar/dist/Calendar.css'
 import dayjs from 'dayjs';
 import axios from 'axios';
 import "./Calendar.css"
-function Calend({handleCalender}) {
+import { api } from '../../APi';
+function Calend({handleCalender,service}) {
     const [val,setVal]=useState(new Date())
     const [bookedDates, setBookedDates] = useState([]);
     useEffect(()=>{
-        axios.get("http://localhost:3004/api/rental")
+        axios.get(`${api}/rental`)
         .then(res=>{
           //eslint-disable-next-line
           const bookedDates=res.data.map(rental=>{
            
-            if(rental.ServiceId===1){
+            if(rental.ServiceId===service.id){
              return  dayjs(rental.rentalDate).toDate()
             }
            
