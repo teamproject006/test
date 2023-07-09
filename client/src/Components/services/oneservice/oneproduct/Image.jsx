@@ -10,7 +10,7 @@ const  Image=({images})=> {
 
     return (
       <div className='images-container'>
-        <h1>Images</h1>
+        {/* <h1>Images</h1> */}
         <div id="carouselExampleControls" className="carousel slide" data-ride="carousel">
       <div className="carousel-inner">
         {images.split(" ").map((imageUrl, index) => (

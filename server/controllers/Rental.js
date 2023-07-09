@@ -1,8 +1,19 @@
-const { Rental } = require('../database-sequelize/models/sequelizeschema');
+const { Rental,Service,User} = require('../database-sequelize/models/sequelizeschema');
 
 module.exports = {
   getAllRentals(req, res) {
-    Rental.findAll()
+    Rental.findAll({ 
+      include: [
+        { 
+          model: User,
+          attributes: ['id', 'username', 'email'], 
+        },
+        {
+          model: Service,
+          attributes: ['id', 'category', 'companyName'],
+        }
+      ]
+    })
       .then((rentals) => {
         res.status(200).json(rentals);
       })
@@ -18,7 +29,7 @@ module.exports = {
         res.status(201).json(rental);
       })
       .catch((error) => {
-        res.status(500).json({ error: 'Failed to add rental' });
+        res.status(500).json(error);
       });
   }
 };

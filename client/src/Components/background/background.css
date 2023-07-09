@@ -16,11 +16,11 @@
     to {left: 1000px;}
   }
 
-.carousel,
-.slide{
-  width: 100%;
-  margin: 100px auto;
-  margin-bottom: 20px;
+  .carousel, .slide {
+    width: 100%;
+    margin: 300;
+    margin-bottom: 20px;
+    margin-top: 104%;
   
 }
 .carousel img {
