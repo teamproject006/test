@@ -125,11 +125,12 @@
             <Button variant="outlined" onClick={handleClickOpen}>
               Reservation
             </Button>
-            <Dialog open={open} onClose={handleClose}>
+            <Dialog  open={open} onClose={handleClose}>
               <DialogTitle>Reservation</DialogTitle>
-              <DialogContent>
+              <DialogContent  >
                 <DialogContentText>Fill the form to make a Reservation</DialogContentText>
                 <TextField
+                  // sx={{border:'2px solid red'}}
                   autoFocus
                   margin="dense"
                   id="name"
