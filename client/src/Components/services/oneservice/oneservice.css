@@ -30,10 +30,8 @@ color:	rgb(240,128,128)}
     color : rgb(139,0,0)
 }
 .allservice{
-   display:grid;  
-   grid-template-columns: auto auto auto;
-   gap: 60px;
-   margin-top: 17%;
+  display: flex;
+  gap:2em;
 
 }
 .div2{
