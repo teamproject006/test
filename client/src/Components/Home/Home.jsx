@@ -4,7 +4,9 @@ import { UserContext } from '../../useContext/userContext'
 import BackGround from "../background/Background.jsx"
 import AllServices from '../services/AllServices.jsx'
 import { api } from '../../APi'
-
+import Version from "../Footer/Footer";
+import Aboutus from "../Aboutus/Aboutus.jsx"
+import "./home.css"
 const Home = () => {
     const {handleUser}=useContext(UserContext)
    
@@ -26,9 +28,13 @@ const Home = () => {
 
  
   return (
-    <div>
+    <div className='homee-container'>
       <BackGround />
       <AllServices/>
+      <Aboutus/>
+
+      <Version/>
+
     </div>
   )
 }

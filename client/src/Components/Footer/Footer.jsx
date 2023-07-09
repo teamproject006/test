@@ -1,128 +1,128 @@
 import React from 'react';
 import { MDBFooter, MDBContainer, MDBRow, MDBCol, MDBIcon } from 'mdb-react-ui-kit';
 
+import './Footer.css';
+
 export default function Version() {
   return (
-    <MDBFooter style={{ backgroundColor: 'rgb(254, 242, 244)' }} className='text-center text-lg-start text-muted'   >
-      <section className='d-flex justify-content-center justify-content-lg-between p-4 border-bottom' style={{ backgroundColor: 'rgb(254, 242, 244)' }}>
-        <div className='me-5 d-none d-lg-block'>
-         
-        </div>
-
-        <div>
-          <a href='' className='me-4 text-reset'>
-            <MDBIcon fab icon="facebook-f" />
+    <MDBFooter className='custom-footer'>
+      <section className='custom-footer-section'>
+        <div className='custom-footer-social-icons'>
+          <a href='/' className='custom-footer-icon'>
+            <MDBIcon fab icon='facebook-f' />
           </a>
-          <a href='' className='me-4 text-reset'>
-            <MDBIcon fab icon="twitter" />
+          <a href='/' className='custom-footer-icon'>
+            <MDBIcon fab icon='twitter' />
           </a>
-          <a href='' className='me-4 text-reset'>
-            <MDBIcon fab icon="google" />
+          <a href='/' className='custom-footer-icon'>
+            <MDBIcon fab icon='google' />
           </a>
-          <a href='' className='me-4 text-reset'>
-            <MDBIcon fab icon="instagram" />
+          <a href='/' className='custom-footer-icon'>
+            <MDBIcon fab icon='instagram' />
           </a>
-          <a href='' className='me-4 text-reset'>
-            <MDBIcon fab icon="linkedin" />
+          <a href='/' className='custom-footer-icon'>
+            <MDBIcon fab icon='linkedin' />
           </a>
-          <a href='' className='me-4 text-reset'>
-            <MDBIcon fab icon="github" />
+          <a href='/' className='custom-footer-icon'>
+            <MDBIcon fab icon='github' />
           </a>
         </div>
       </section>
 
-      <section className=''  style={{ backgroundColor: 'rgb(254, 242, 244)' }}>
-        <MDBContainer className='text-center text-md-start mt-5'>
-          <MDBRow className='mt-3'>
-            <MDBCol md="3" lg="4" xl="3" className='mx-auto mb-4'>
-              <h6 className='text-uppercase fw-bold mb-4'>
-                <MDBIcon icon="gem" className="me-3" />
-              Farhni 
+      <section className='custom-footer-section custom-footer-content-section'>
+        <MDBContainer>
+          <MDBRow>
+            <MDBCol md='3' lg='4' xl='3' className='mb-4'>
+              <h6 className='custom-footer-heading'>
+                <MDBIcon icon='gem' className='me-2' />
+                Farhni
               </h6>
-              <p>
-              Your wedding team and everything in between.
+              <p className='custom-footer-text'>
+                Your wedding team and everything in between.
               </p>
             </MDBCol>
 
-            <MDBCol md="2" lg="2" xl="2" className='mx-auto mb-4'>
-              <h6 className='text-uppercase fw-bold mb-4'>Our Service </h6>
-              <p>
-                <a href='#!' className='text-reset' >
-                 Room Party
-              </a>
-              </p>
-              <p>
-                <a href='#!' className='text-reset'>
-                Wedding Dress & Suit
-                </a>
-              </p>
-              <p>
-                <a href='#!' className='text-reset'>
-                   Hairdressing
-                </a>
-              </p>
-              <p>
-                <a href='#!' className='text-reset'>
-                Wedding Cars 
-                </a>
-              </p>
-
-                <p>
-                <a href='#!' className='text-reset'>
-                       Florist </a>
-              </p>
+            <MDBCol md='2' lg='2' xl='2' className='mb-4'>
+              <h6 className='custom-footer-heading'>Our Services</h6>
+              <ul className='custom-footer-list'>
+                <li>
+                  <a href='/' className='custom-footer-link'>
+                    Room Party
+                  </a>
+                </li>
+                <li>
+                  <a href='/' className='custom-footer-link'>
+                    Wedding Dress & Suit
+                  </a>
+                </li>
+                <li>
+                  <a href='/' className='custom-footer-link'>
+                    Hairdressing
+                  </a>
+                </li>
+                <li>
+                  <a href='/' className='custom-footer-link'>
+                    Wedding Cars
+                  </a>
+                </li>
+                <li>
+                  <a href='/' className='custom-footer-link'>
+                    Florist
+                  </a>
+                </li>
+              </ul>
             </MDBCol>
 
-            <MDBCol md="3" lg="2" xl="2" className='mx-auto mb-4'>
-              <h6 className='text-uppercase fw-bold mb-4'>Our partners</h6>
-              <p>
-                <a href='#!' className='text-reset'>
-                  Maison Fondant
-                </a>
-              </p>
-              <p>
-                <a href='#!' className='text-reset'>
-                  Flora
-                </a>
-              </p>
-              <p>
-                <a href='#!' className='text-reset'>
-                Glof Carthage 
-                </a>
-              </p>
-              <p>
-                <a href='#!' className='text-reset'>
-                 
-                </a>
-              </p>
+            <MDBCol md='3' lg='2' xl='2' className='mb-4'>
+              <h6 className='custom-footer-heading'>Our Partners</h6>
+              <ul className='custom-footer-list'>
+                <li>
+                  <a href='/' className='custom-footer-link'>
+                    Maison Fondant
+                  </a>
+                </li>
+                <li>
+                  <a href='/' className='custom-footer-link'>
+                    Flora
+                  </a>
+                </li>
+                <li>
+                  <a href='/' className='custom-footer-link'>
+                    Glof Carthage
+                  </a>
+                </li>
+              </ul>
             </MDBCol>
 
-            <MDBCol md="4" lg="3" xl="3" className='mx-auto mb-md-0 mb-4'>
-              <h6 className='text-uppercase fw-bold mb-4'>Contact</h6>
-              <p>
-                <MDBIcon icon="home" className="me-2" />
-                Cite Ghazella, Ariana, Tunisia
-              </p>
-              <p>
-                <MDBIcon icon="envelope" className="me-3" />
-                Farhni@gmail.com
-              </p>
-              <p>
-                <MDBIcon icon="phone" className="me-3" /> + 216 71 858 585
-              </p>
-              <p>
-                <MDBIcon icon="print" className="me-3" /> + 216 71 858 585
-              </p>
+            <MDBCol md='4' lg='3' xl='3' className='mb-4'>
+              <h6 className='custom-footer-heading'>Contact</h6>
+              <ul className='custom-footer-contact-list'>
+                <li>
+                  <MDBIcon icon='home' className='me-2' />
+                  Cite Ghazella, Ariana, Tunisia
+                </li>
+                <li>
+                  <MDBIcon icon='envelope' className='me-2' />
+                  Farhni@gmail.com
+                </li>
+                <li>
+                  <MDBIcon icon='phone' className='me-2' />
+                  +216 71 858 585
+                </li>
+                <li>
+                  <MDBIcon icon='print' className='me-2' />
+                  +216 71 858 585
+                </li>
+              </ul>
             </MDBCol>
           </MDBRow>
         </MDBContainer>
       </section>
 
-      <div className='text-center p-4' style={{ backgroundColor: 'rgb(254, 242, 244)' }}>
-        © 2023 Copyright:
-        <a className='text-reset fw-bold' >
-          Farhni.tn
-        </a>
+      <div className='custom-footer-bottom'>
+        <p className='custom-footer-bottom-text'>
+          © 2023 Farhni.tn. All rights reserved.
+        </p>
       </div>
     </MDBFooter>
   );
