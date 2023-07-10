@@ -1,4 +1,4 @@
-const { Sequelize, DataTypes } = require('sequelize');
+const { Sequelize, DataTypes } = require ('sequelize');
 const sequelize = require('../config');
 
 const User = sequelize.define('User', {
@@ -34,13 +34,8 @@ const Service = sequelize.define('Service', {
     allowNull: false
   },
   companyName: {
-    type: DataTypes.STRING,
+    type: Sequelize.STRING,
     allowNull: false
-  },
-  email: {
-    type: DataTypes.STRING,
-    allowNull: false,
-    unique: true
   },
   description: {
     type: DataTypes.STRING,
@@ -55,7 +50,7 @@ const Service = sequelize.define('Service', {
     allowNull: false
   },
   images: {
-    type: DataTypes.ARRAY(DataTypes.STRING),
+    type: DataTypes.TEXT,
     allowNull: false
   },
   address: {
@@ -69,6 +64,10 @@ const Service = sequelize.define('Service', {
 const Rental = sequelize.define('Rental', {
   rentalDate: {
     type: DataTypes.DATE,
+    allowNull: false
+  },
+  returnDate: {
+    type: Sequelize.DATE,
     allowNull: false
   }
 }, {
