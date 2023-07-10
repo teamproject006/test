@@ -43,8 +43,8 @@ const handleCategory=(category)=>{
                     <img onClick={()=>handleCategory("barber")}  src="https://www.myshoestories.com/media/wysiwyg/Best_Wedding_Hairstyles_For_Every_Bride_Style_2021_2022.jpg" alt="Service 3"  />
                     <h4><b>Hairdressing</b></h4>  
               </div>
-              <div className="card-items">
-                        <img className="pic"  src="https://www.eleganceweddingcars.co.uk/wp-content/uploads/2021/04/LWB-Silver-Cloud-Rolls-Royce-1750x1013.jpg" alt="Service 4"  />
+              <div className="card-items" onClick={()=>handleCategory("cars")}>
+                        <img src="https://www.eleganceweddingcars.co.uk/wp-content/uploads/2021/04/LWB-Silver-Cloud-Rolls-Royce-1750x1013.jpg" alt="Service 4"  />
                          <h4><b> Wedding Cars </b></h4>   
               </div>
               <div className="card-items">
