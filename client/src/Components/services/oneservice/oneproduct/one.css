@@ -253,13 +253,15 @@
 }
 .One-container{
   height: 800px;
+  position: relative;
 }
 #carouselExampleControls{
   
   width: 50%  !important;
 } 
 .images-container{
-  margin-top: 80px;
+  position: absolute;
+  top: -440px;
 }
 .carousel-inner {
   border-radius: 28px;
@@ -271,4 +273,12 @@
   background-color: #e9ecef;
   padding: 30px;
   border-radius: 10px;
+}
+.main img {
+  width: 446px;
+    height: 446px;  
+}
+.carousel img {
+  border-radius: 20px;
+  height: 513p;
 }

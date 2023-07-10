@@ -73,3 +73,10 @@
       border-radius: 20px; 
       margin-bottom: 18px; 
     }
+    .allservices {
+      display: flex;
+      gap: 4em;
+      flex-wrap: wrap;
+      margin-top: 266px;
+      margin-left: 246px;
+    }
